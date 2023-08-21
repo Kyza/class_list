@@ -33,20 +33,20 @@ pub fn class_list(input: TokenStream) -> TokenStream {
 			if let Some(signal) = signal {
 				quote! {
 					if (#signal).to_class_toggle() {
-						(#value).to_class_list()
+						(#value).to_class_list(false)
 					} else {
 						"".to_string()
 					}
 				}
 			} else {
 				quote! {
-					(#value).to_class_list()
+					(#value).to_class_list(false)
 				}
 			}
 		})
 		.collect();
 	let caller = quote! {
-		Vec::<String>::from([#(#values),*]).join(" ").to_class_list()
+		Vec::<String>::from([#(#values),*]).join(" ").to_class_list(true)
 	};
 
 	let code = if !statement.raw {

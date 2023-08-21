@@ -6,11 +6,11 @@ use class_list::{
 #[test]
 fn to_class_list() {
 	assert_eq!(
-		"  class    list  ".to_class_list(),
+		"  class    list  ".to_class_list(true),
 		"class list".to_string()
 	);
 	assert_eq!(
-		"  class    list  ".to_string().to_class_list(),
+		"  class    list  ".to_string().to_class_list(true),
 		"class list".to_string()
 	);
 }
@@ -89,7 +89,7 @@ fn new_impl() {
 	struct Bool(bool);
 
 	impl ClassList for Bool {
-		fn to_class_list(&self) -> String {
+		fn to_class_list(&self, _: bool) -> String {
 			if self.0 {
 				"true".into()
 			} else {

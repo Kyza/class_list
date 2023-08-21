@@ -8,6 +8,10 @@ Examples provided will be for the [Leptos](https://github.com/leptos-rs/leptos) 
 
 This library is meant to be agnostic and has no runtime dependencies, but it has only been tested with Leptos.
 
+```bash
+cargo add class_list
+```
+
 ### Example
 
 `class_list![]` by default wraps itself in a move closure, meaning it will be reactive by default.

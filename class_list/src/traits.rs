@@ -77,10 +77,14 @@ impl ClassToggle for bool {
 pub trait ClassList {
 	/// From [`ClassList`].
 	///
-	/// Converts the type into a normalized class list string.
+	/// Converts the type into a class list string.
+	///
+	/// If [`normalize`] is [`true`], it'll replace duplicate spaces and trim the string.
+	///
+	/// This being an option is mostly for internal optimization of macro-generated code.
 	///
 	/// `" class ​ ​ list ​"` -> `"class list"`
-	fn to_class_list(&self) -> String;
+	fn to_class_list(&self, normalize: bool) -> String;
 }
 
 impl<T, F> ClassList for F
@@ -88,8 +92,8 @@ where
 	F: Fn() -> T,
 	T: ClassList,
 {
-	fn to_class_list(&self) -> String {
-		self().to_class_list()
+	fn to_class_list(&self, normalize: bool) -> String {
+		self().to_class_list(normalize)
 	}
 }
 
@@ -97,9 +101,9 @@ impl<T, E> ClassList for Result<T, E>
 where
 	T: ClassList,
 {
-	fn to_class_list(&self) -> String {
+	fn to_class_list(&self, normalize: bool) -> String {
 		if let Ok(value) = self {
-			value.to_class_list()
+			value.to_class_list(normalize)
 		} else {
 			String::default()
 		}
@@ -110,9 +114,9 @@ impl<T> ClassList for Option<T>
 where
 	T: ClassList,
 {
-	fn to_class_list(&self) -> String {
+	fn to_class_list(&self, normalize: bool) -> String {
 		if let Some(value) = self {
-			value.to_class_list()
+			value.to_class_list(normalize)
 		} else {
 			String::default()
 		}
@@ -120,17 +124,29 @@ where
 }
 
 impl ClassList for String {
-	fn to_class_list(&self) -> String {
-		normalize_class_list_string(self.clone())
+	fn to_class_list(&self, normalize: bool) -> String {
+		if normalize {
+			normalize_class_list_string(self.clone())
+		} else {
+			self.clone()
+		}
 	}
 }
 impl ClassList for &str {
-	fn to_class_list(&self) -> String {
-		normalize_class_list_string(self.to_string())
+	fn to_class_list(&self, normalize: bool) -> String {
+		if normalize {
+			normalize_class_list_string(self.to_string())
+		} else {
+			self.to_string()
+		}
 	}
 }
 impl ClassList for str {
-	fn to_class_list(&self) -> String {
-		normalize_class_list_string(self.to_string())
+	fn to_class_list(&self, normalize: bool) -> String {
+		if normalize {
+			normalize_class_list_string(self.to_string())
+		} else {
+			self.to_string()
+		}
 	}
 }
