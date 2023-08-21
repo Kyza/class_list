@@ -1,7 +1,19 @@
 [package]
 name = "class_list_macro"
+description = "A reactive helper that ensures normalized class list strings in frontend frameworks like Leptos."
 version = { workspace = true }
 edition = "2021"
+authors = ["Kyza"]
+license = "MIT"
+repository = "https://github.com/Kyza/class_list"
+readme = "../../README.md"
+keywords = ["macro", "class_list", "web", "wasm", "proc_macro"]
+categories = [
+	"development-tools::build-utils",
+	"rust-patterns",
+	"wasm",
+	"web-programming",
+]
 
 [dependencies]
 proc-macro2 = { workspace = true }

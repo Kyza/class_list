@@ -1,6 +1,6 @@
 # class_list!
 
-A reactive helper that ensures nice class list strings in frontend frameworks like [Leptos](https://github.com/leptos-rs/leptos).
+A reactive helper that ensures normalized class list strings in frontend frameworks like [Leptos](https://github.com/leptos-rs/leptos).
 
 ## Usage
 
