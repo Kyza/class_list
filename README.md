@@ -92,3 +92,53 @@ __class_list![
 	"default-class-names",
 ]
 ```
+
+### Implementing Traits
+
+If you'd like to simply pass a type to the macro instead of converting it every time, you can implement the `ClassList` and `ClassToggle` types.
+
+Check out [traits.rs](./class_list/src/traits.rs) to see the default implementations which are good examples of implementing them.
+
+```rs
+// If you're using a type you don't own,
+// you must wrap it in a new struct.
+struct Bool(bool);
+
+impl ClassList for Bool {
+	fn to_class_list(&self, normalize: bool) -> String {
+		// If the string could contain multiple class names
+		// you should use `normalize` to determine whether
+		// or not to call `.to_class_list()` on it before
+		// returning.
+		// If you're lazy you could always normalize, but
+		// then the string will be normalized multiple
+		// times for every update in the macro.
+		if self.0 {
+			"true".into()
+		} else {
+			"false".into()
+		}
+	}
+}
+impl ClassToggle for Bool {
+	fn to_class_toggle(&self) -> bool {
+		self.0
+	}
+}
+
+// Option, Result, and Fn are implemented in a way which
+// allows any new type you implement to be automatically
+// passed through.
+assert_eq!(
+	class_list![
+		// ClassList
+		move || Bool(false),
+		Bool(true),
+		"class",
+		// ClassToggle
+		"hidden" <=> move || Bool(false),
+		"list",
+	](),
+	"false true class list".to_string()
+);
+```

@@ -79,9 +79,9 @@ pub trait ClassList {
 	///
 	/// Converts the type into a class list string.
 	///
-	/// If [`normalize`] is [`true`], it'll replace duplicate spaces and trim the string.
+	/// If `normalize` is `true`, it'll replace duplicate spaces and trim the string.
 	///
-	/// This being an option is mostly for internal optimization of macro-generated code.
+	/// `normalize` being an option is mostly for internal optimization of macro-generated code.
 	///
 	/// `" class ​ ​ list ​"` -> `"class list"`
 	fn to_class_list(&self, normalize: bool) -> String;
