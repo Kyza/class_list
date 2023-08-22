@@ -46,7 +46,7 @@ pub fn class_list(input: TokenStream) -> TokenStream {
 		})
 		.collect();
 	let caller = quote! {
-		Vec::<String>::from([#(#values),*]).join(" ").to_class_list(true)
+		[#(#values),*].join(" ").to_class_list(true)
 	};
 
 	let code = if !statement.raw {

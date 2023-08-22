@@ -1,17 +1,34 @@
 use class_list::{
 	class_list,
 	traits::{ClassList, ClassToggle},
+	utils::normalize_class_list_string,
 };
 
 #[test]
-fn to_class_list() {
+fn normalize() {
 	assert_eq!(
-		"  class    list  ".to_class_list(true),
+		normalize_class_list_string("class list".into()),
 		"class list".to_string()
 	);
 	assert_eq!(
-		"  class    list  ".to_string().to_class_list(true),
+		normalize_class_list_string("    class list".into()),
 		"class list".to_string()
+	);
+	assert_eq!(
+		normalize_class_list_string("class list    ".into()),
+		"class list".to_string()
+	);
+	assert_eq!(
+		normalize_class_list_string("    class list    ".into()),
+		"class list".to_string()
+	);
+	assert_eq!(
+		normalize_class_list_string("    class    list    ".into()),
+		"class list".to_string()
+	);
+	assert_eq!(
+		normalize_class_list_string(" 1 2 3 4  5  6 7 8 9 ".into()),
+		"1 2 3 4 5 6 7 8 9".to_string()
 	);
 }
 
