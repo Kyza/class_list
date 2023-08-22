@@ -1,5 +1,10 @@
 # class_list!
 
+[<img alt="github" src="https://img.shields.io/badge/github-Kyza/class_list-999999?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/Kyza/class_list)
+[<img alt="crates.io" src="https://img.shields.io/crates/v/class_list.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/class_list)
+[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-class_list-999999?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/class_list)
+[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/Kyza/class_list/test.yml?branch=trunk&style=for-the-badge" height="20">](https://github.com/Kyza/class_list/actions?query=branch%3Atrunk)
+
 A reactive helper that ensures normalized class list strings in frontend frameworks like [Leptos](https://github.com/leptos-rs/leptos).
 
 ## Usage
