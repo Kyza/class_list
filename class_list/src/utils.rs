@@ -3,7 +3,7 @@
 /// `" class ​ ​ list ​"` -> `"class list"`
 pub fn normalize_class_list_string(class_string: String) -> String {
 	// Shortcuts like assuming only `' '` is whitespace and the
-	// string will be the same length of shorter can be taken.
+	// string will be the same length or shorter can be taken.
 	let mut result = String::with_capacity(class_string.len());
 
 	// Perform only one iteration over the old string.
