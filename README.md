@@ -1,9 +1,9 @@
-# class_list!
+# class_list &emsp; [<img src="https://img.shields.io/badge/github-Kyza/class_list?style=for-the-badge&color=555555&labelColor=333333&logo=github" alt="GitHub Badge" height="20"/>][GitHub Link] [<img src="https://img.shields.io/crates/v/class_list.svg?style=for-the-badge&color=fc8d62&labelColor=333333&logo=rust" alt="crates.io Badge" height="20"/>][crates.io Link] [<img src="https://img.shields.io/badge/docs.rs-class_list?style=for-the-badge&color=555555&labelColor=333333&logo=docs.rs" alt="docs.rs Badge" height="20"/>][docs.rs Link] [<img src="https://img.shields.io/github/actions/workflow/status/Kyza/class_list/test.yml?branch=trunk&style=for-the-badge&labelColor=333333" alt="Build Status Badge" height="20"/>][Build Status Link]
 
-[<img alt="github" src="https://img.shields.io/badge/github-Kyza/class_list-999999?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/Kyza/class_list)
-[<img alt="crates.io" src="https://img.shields.io/crates/v/class_list.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/class_list)
-[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-class_list-999999?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/class_list)
-[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/Kyza/class_list/test.yml?branch=trunk&style=for-the-badge" height="20">](https://github.com/Kyza/class_list/actions?query=branch%3Atrunk)
+[GitHub Link]: https://github.com/Kyza/class_list
+[crates.io Link]: https://crates.io/crates/class_list
+[docs.rs Link]: https://docs.rs/class_list
+[Build Status Link]: https://github.com/Kyza/class_list/actions?query=branch%3Atrunk
 
 A reactive helper that ensures normalized class list strings in frontend frameworks like [Leptos](https://github.com/leptos-rs/leptos).
 
@@ -102,7 +102,7 @@ __class_list![
 
 If you'd like to simply pass a type to the macro instead of converting it every time, you can implement the `ClassList` and `ClassToggle` types.
 
-Check out [traits.rs](./class_list/src/traits.rs) to see the default implementations which are good examples of implementing them.
+Check out [traits.rs](https://github.com/Kyza/class_list/blob/trunk/class_list/src/traits.rs) to see the default implementations which are good examples of implementing them.
 
 ```rs
 // If you're using a type you don't own,
