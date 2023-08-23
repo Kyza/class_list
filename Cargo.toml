@@ -3,11 +3,11 @@ resolver = "2"
 members = ["class_list", "class_list_macro"]
 
 [workspace.package]
-version = "0.1.6"
+version = "0.1.7"
 
 [workspace.dependencies]
-class_list = { path = "class_list", version = "0.1.6" }
-class_list_macro = { path = "class_list_macro", version = "0.1.6" }
+class_list = { path = "class_list", version = "0.1.7" }
+class_list_macro = { path = "class_list_macro", version = "0.1.7" }
 
 proc-macro2 = "1.0.66"
 quote = "1.0.33"
